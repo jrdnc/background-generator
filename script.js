@@ -6,13 +6,17 @@ var randomButton = document.querySelector(".random");
 
 setInitialGradient();
 
+// take given num and convert to hex value
 function toHex(n) {
 	let hexNum = Number(n).toString(16);
 	return hexNum.length == 1 ? "0" + hexNum : hexNum;
   }  
 
+// convert rgb value to hex value
 function rgbToHex(rgb) {
+	// split into array of nums
 	let values = rgb.split(",");
+	// return converted hex value
 	return "#" + toHex(values[0]) + toHex(values[1]) + toHex(values[2]);
 }
 
@@ -70,6 +74,7 @@ function createHexValue() {
     return newNumber;
 }
 
+// creates 2 random hex values and sets them as the new gradient
 function randomize() {
     color1.value = createHexValue();
     color2.value = createHexValue();
