@@ -6,10 +6,31 @@ var randomButton = document.querySelector(".random");
 
 setInitialGradient();
 
-// set gradient to match color inputs at start (is there a way to not hard-code this?)
+function toHex(n) {
+	let hexNum = Number(n).toString(16);
+	console.log(n + " " + hexNum);
+	return hexNum.length == 1 ? "0" + hexNum : hexNum;
+  }  
+
+function rgbToHex(rgb) {
+	let values = rgb.split(",");
+	return "#" + toHex(values[0]) + toHex(values[1]) + toHex(values[2]);
+}
+
+// set gradient to match color inputs from CSS at start (better than before but not the best)
 function setInitialGradient() {
-    color1.value = "#FFFF00";
-    color2.value = "#FF0000";
+	// grab CSS background value
+	let body_style = getComputedStyle(body).background;
+	let temp = body_style.substr(body_style.indexOf("rgb("));
+	temp = temp.split(/[()]+/);
+	// grab color values
+	let c1, c2 = "";
+	c1 = temp[1];
+	c2 = temp[3];
+	//convert rgb values to hex values
+	color1.value = rgbToHex(c1);
+	color2.value = rgbToHex(c2);
+	console.log(`${color1.value}  ${color2.value}`);
     setGradient(); // set gradient to match color inputs at start
 }
 
