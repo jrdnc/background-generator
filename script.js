@@ -8,7 +8,6 @@ setInitialGradient();
 
 function toHex(n) {
 	let hexNum = Number(n).toString(16);
-	console.log(n + " " + hexNum);
 	return hexNum.length == 1 ? "0" + hexNum : hexNum;
   }  
 
@@ -30,7 +29,6 @@ function setInitialGradient() {
 	//convert rgb values to hex values
 	color1.value = rgbToHex(c1);
 	color2.value = rgbToHex(c2);
-	console.log(`${color1.value}  ${color2.value}`);
     setGradient(); // set gradient to match color inputs at start
 }
 
