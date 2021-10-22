@@ -39,6 +39,8 @@ function setInitialGradient() {
 // sets gradient to whatever values color1 and color2 are set to
 function setGradient() {
     body.style.background = "linear-gradient(to right, " + color1.value + ", " + color2.value + ")";
+
+	css.textContent = body.style.background + ";";
 }
 
 // creates a random hexidecimal value
